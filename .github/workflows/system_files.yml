@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
     inputs:
       url:
-        description: 'SamFW Direct Download Link'
+        description: 'https://s06.ooo/v2/IxJCDiMnLkEvCEEJPDZBAzwxBho7CB4lFzssIDs2ByAzMUEgOzEUQDMQMCMBOyw/PDAsATI4Aj07CDYkDy80Py9AMwU1Oz4FMjA+ORI2QTM8AywdOwAfETssLxAeLD4LCRIxOTwRLzADMDwGMwMsEi42Gj8hLDwGNCcKACM4ByYjLAIWEggjOTM4BkIeCzwGHgM8FCMkNDEjCxVACTghHzInDQYuFx8rIwAvJCFAMxE8EQY5NRshDjURPho0ES8kNRYhOR44LwsJEQc5NBsjKyEAPg4hAAYsLjgeLDQRHg4yJTMsMiUNKzwAPh8mGzk5FyUzDTUHQQEuByADISxBIwMnOUANQAokMzYCICMXPjkDFzA1CS8pDTsxHhwzQAZCOzEHHjMsNCsNMT4eODAeHgk7CAYeFi8NODApAzMwPiAjAw0wOwcpPDskKRYXOwUkOAAhKTw/FD01OCBCJicIBjslNDAvAA0wLjE7ADISMAEvLz4JNBECHB4HLgQ1NjAxEgshDjUAIQ0jOAZCIwM0HR4kFT8eCzsxHjkTEw=='
         required: true
       compression:
         description: 'Compression level'
