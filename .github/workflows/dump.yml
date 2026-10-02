@@ -124,9 +124,11 @@ jobs:
       - name: Make tools executable
         run: chmod +x tools/android-tools/* tools/erofs-utils/* upload_gofile.sh scripts/dump.sh
 
+
       - name: Run Dump Script
         run: |
           PARTITIONS=""
+
           ${{ github.event.inputs.extract_system }} && PARTITIONS="$PARTITIONS system"
           ${{ github.event.inputs.extract_system_ext }} && PARTITIONS="$PARTITIONS system_ext"
           ${{ github.event.inputs.extract_product }} && PARTITIONS="$PARTITIONS product"
@@ -142,18 +144,21 @@ jobs:
           ${{ github.event.inputs.extract_vbmeta_system }} && PARTITIONS="$PARTITIONS vbmeta_system"
           ${{ github.event.inputs.extract_dtbo }} && PARTITIONS="$PARTITIONS dtbo"
           ${{ github.event.inputs.extract_recovery }} && PARTITIONS="$PARTITIONS recovery"
-          
+
           PARTITIONS="${PARTITIONS# }"
-          
-          if [ -z "$PARTITIONS" ]; then
+
+          EXTRACT_SUPER="${{ github.event.inputs.extract_super }}"
+
+          if [ -z "$PARTITIONS" ] && [ "$EXTRACT_SUPER" != "true" ]; then
             echo "❌ No partitions selected! Please check at least one box."
             exit 1
           fi
-          
+
           bash scripts/dump.sh \
             "${{ github.event.inputs.url }}" \
             "${{ github.event.inputs.compression }}" \
-            "$PARTITIONS"
+            "$PARTITIONS" \
+            "$EXTRACT_SUPER"
 
       - name: Get Firmware Info
         id: fwinfo
