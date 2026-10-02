@@ -35,6 +35,10 @@ on:
         options:
         - 'gofile'
         - 'github releases'
+      extract_super:
+        description: 'super.img'
+        type: boolean
+        default: false
       extract_system:
         description: 'system.img'
         type: boolean
